@@ -107,7 +107,7 @@ const Elections = () => {
 
       // Call the API to publish results after withdrawal
       const token = localStorage.getItem('token');
-      await axios.post('https://e-voting-blockchain-5n6q.onrender.com/publishResults', 
+      await axios.post('https://blockchian-community-voting.onrender.com/publishResults', 
         { electionId },
         {
           headers: {

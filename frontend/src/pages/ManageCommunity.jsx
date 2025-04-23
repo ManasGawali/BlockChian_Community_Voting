@@ -22,7 +22,7 @@ const ManageCommunity = () => {
       }
 
       try {
-        const response = await axios.post('https://e-voting-blockchain-5n6q.onrender.com/getCandidates', {
+        const response = await axios.post('https://blockchian-community-voting.onrender.com/getCandidates', {
           community_key: communityKey
         }, {
           headers: {

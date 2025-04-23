@@ -81,7 +81,7 @@ const CreateCommunity = () => {
       }
 
       const response = await axios.post(
-        'https://e-voting-blockchain-5n6q.onrender.com/admin/createCommunity',
+        'https://blockchian-community-voting.onrender.com/admin/createCommunity',
         {
           cname: communityName.trim(),
           password: communityPassword.trim(),

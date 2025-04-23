@@ -20,7 +20,7 @@ const Candidate = () => {
         if (!electionId) throw new Error('No election selected');
 
         const response = await axios.post(
-          'http://localhost:5001/getSelectedCandidates',
+          'https://blockchian-community-voting.onrender.com/getSelectedCandidates',
           { electionId },
           {
             headers: { token: `Bearer ${localStorage.getItem('token')}` },
@@ -52,7 +52,7 @@ const Candidate = () => {
 
     const token = localStorage.getItem('token');
     axios
-      .post('http://localhost:5001/verifier', { token })
+      .post('https://blockchian-community-voting.onrender.com/verifier', { token })
       .then((response) => {
         if (response.status === 200) {
           console.log('Verifier Response:', response.data);
@@ -87,8 +87,8 @@ const Candidate = () => {
       setLoading(true);
       setError(null);
 
-      const provider = new ethers.JsonRpcProvider('https://sepolia.infura.io/v3/ce4f0be96fe247a9b60eae11f0551a09');
-      const companyWallet = new ethers.Wallet('27f4767ba4fd4d2009855fcc0e05f2c14d7edb859a74920bf8911c474da32fff', provider);
+      const provider = new ethers.JsonRpcProvider(import.meta.env.VITE_REACT_APP_RPC_URL);
+      const companyWallet = new ethers.Wallet(import.meta.env.VITE_REACT_APP_RELAYER_PRIVATE_KEY, provider);
       const contract = new ethers.Contract(electionAddress, ElectionABI, companyWallet);
       console.log('Contract Address:', electionAddress);
       console.log('Voter ID:', voterId);

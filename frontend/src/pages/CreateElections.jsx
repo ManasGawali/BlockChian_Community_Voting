@@ -3,7 +3,7 @@ import axios from 'axios';
 import { ethers } from 'ethers';
 import ElectionFactoryABI from '../abi/ElectionFactoryAbi.json';
 
-const ELECTION_FACTORY_ADDRESS = '0xF8929fA7B2cC2d0c76f12e1D75e6A7511A506676';
+const ELECTION_FACTORY_ADDRESS = import.meta.env.VITE_ELECTION_FACTORY_ADDRESS;
 
 export default function CreateElection() {
   const [electionName, setElectionName] = useState('');
@@ -54,7 +54,7 @@ export default function CreateElection() {
       try {
         setLoadingCandidates(true);
         const response = await axios.post(
-          'https://e-voting-blockchain-5n6q.onrender.com/getCandidates',
+          'https://blockchian-community-voting.onrender.com/getCandidates',
           { community_key: communityKey },
           { headers: { token: `Bearer ${token}`, 'Content-Type': 'application/json' } }
         );
@@ -229,7 +229,7 @@ export default function CreateElection() {
 
       // Send to backend
       const response = await axios.post(
-        'https://e-voting-blockchain-5n6q.onrender.com/createElection',
+        'https://blockchian-community-voting.onrender.com/createElection',
         payload,
         {
           headers: {
