@@ -42,7 +42,7 @@ const Results = () => {
         const fetchedElections = response.data;
         console.log('Fetched Elections from API:', fetchedElections);
 
-        const provider = new ethers.JsonRpcProvider('https://sepolia.infura.io/v3/e0be1c8fa97c4895b24b08bc6cb0aaef');
+        const provider = new ethers.JsonRpcProvider(import.meta.env.VITE_REACT_APP_RPC_URL);
 
         const updatedElections = await Promise.all(
           fetchedElections.map(async (electionData) => {
