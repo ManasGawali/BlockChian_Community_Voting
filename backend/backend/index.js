@@ -21,7 +21,7 @@ const publishedResults=require("./routes/admin/getStatusResult");
 
 
 app.use(cors({
-  origin: "https://block-chian-community-voting.vercel.app/",
+  origin: "https://block-chian-community-voting.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "token", "key"],
   optionsSuccessStatus: 200,
