@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ethers } from 'ethers';
 import ElectionABI from '../abi/ElectionABI.json';
+import { useNavigate } from 'react-router-dom';
 
 const Candidate = () => {
   const [candidates, setCandidates] = useState([]);
@@ -12,6 +13,7 @@ const Candidate = () => {
   const [confirmVote, setConfirmVote] = useState(false);
   const [selectedCandidate, setSelectedCandidate] = useState(null);
   const [voterId, setVoterId] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCandidates = async () => {
@@ -121,7 +123,7 @@ const Candidate = () => {
       await tx.wait();
 
       closeConfirmVote();
-      window.location.href = '/congrats';
+      navigate('/congrats');
     } catch (err) {
       console.error('Vote Error:', err);
       setError(err.message || 'Error submitting vote');
