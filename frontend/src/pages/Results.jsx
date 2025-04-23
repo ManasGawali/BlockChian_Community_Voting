@@ -66,7 +66,7 @@ const Results = () => {
             // Function to fetch candidates with their vote counts from the backend
             const fetchCandidatesWithVotes = async (electionId, candidates) => {
               try {
-                const response = await axios.post('https://blockchian-community-voting.onrender.comgetSelectedCandidates', {
+                const response = await axios.post('https://blockchian-community-voting.onrender.com/getSelectedCandidates', {
                   electionId: electionId
                 }, {
                   headers: {
