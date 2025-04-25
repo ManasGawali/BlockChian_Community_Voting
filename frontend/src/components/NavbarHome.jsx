@@ -23,7 +23,7 @@ const Navbar = () => {
 
         <nav className="flex gap-8 items-center text-lg font-extrabold sm:ml-auto">
           <Link
-            to="/Profile"
+            to="/profile/default"
             className="hover:text-emerald-400 transition px-3 py-1 rounded-lg focus:outline-none"
           >
             Profile
